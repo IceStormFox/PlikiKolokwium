@@ -20,7 +20,7 @@ public class StudentService
 
         return student;
     }
-    public static void GetStudent(List<Student> studentList) 
+    public static void GetStudentList(List<Student> studentList) 
     {
         Console.WriteLine("\n");
 

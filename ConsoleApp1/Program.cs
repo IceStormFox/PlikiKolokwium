@@ -25,7 +25,7 @@ internal class Program
                     var student = StudentService.AddNewStudent(); 
                     studentList.Add(student); 
                     break;
-                case 2: StudentService.GetStudent(studentList); break;
+                case 2: StudentService.GetStudentList(studentList); break;
                 case 3: Console.WriteLine($"{Extensions.StudentData(StudentService.GetStudentData(studentList))}"); break;
                 case 4: FileOperations.Save(studentList); break;
                 case 6: return;

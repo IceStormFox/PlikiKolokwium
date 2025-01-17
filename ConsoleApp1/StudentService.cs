@@ -23,12 +23,14 @@ public class StudentService
     public static void GetStudentList(List<Student> studentList) 
     {
         Console.WriteLine("\n");
-
-        for (int i = 0; i < studentList.Count; i++)
+        if (studentList.Count == 0) { Console.WriteLine("Proszę wykonać operację nr 5"); }
+        else
         {
-            Console.WriteLine($"{i + 1}. {studentList[i].ShowFullName()}");
+            for (int i = 0; i < studentList.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {studentList[i].ShowFullName()}");
+            }
         }
-
         Console.WriteLine("\n");
     }
     public static Student GetStudentData(List<Student> studentList)

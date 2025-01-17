@@ -14,11 +14,12 @@ internal class Program
             Console.WriteLine("2. Wyświetl studentów");
             Console.WriteLine("3. Wyświetl dane studenta");
             Console.WriteLine("4. Zapisz do pliku");
-            Console.WriteLine("5. Czytaj z pliku");
-            Console.WriteLine("6. Wyjście");
+            Console.WriteLine("5. Wczytaj listę studentów z pliku");
+            Console.WriteLine("6. Usuń studenta z pliku");
+            Console.WriteLine("7. Wyjście");
 
             var menuChoice = Console.ReadLine();
-            choice = Extensions.IntParser(menuChoice, 1, 6);
+            choice = Extensions.IntParser(menuChoice, 1, 7);
             switch (choice)
             {
                 case 1: 
@@ -28,9 +29,11 @@ internal class Program
                 case 2: StudentService.GetStudentList(studentList); break;
                 case 3: Console.WriteLine($"{Extensions.StudentData(StudentService.GetStudentData(studentList))}"); break;
                 case 4: FileOperations.Save(studentList); break;
-                case 6: return;
+                case 5: studentList = FileOperations.Read(); break;
+                case 6: Console.WriteLine(FileOperations.Delete()); studentList = FileOperations.Read(); break;
+                case 7: return;
             }
         }
-        while (choice != 6);
+        while (choice != 7);
     }
 }
